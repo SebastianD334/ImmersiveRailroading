@@ -378,7 +378,7 @@ public class GuiBuilder {
                         int dig = Character.getNumericValue(out.charAt(decimalIndex + 1));
                         dig = Math.min(5, Math.max(0, dig));
 
-                        out = out.replace(statStr + "." + dig, stat.getValue(stock, dig));
+                        out = out.replace(out.substring(index, decimalIndex + 2), stat.getValue(stock, dig));
                     } else {
                         out = out.replace(statStr, stat.getValue(stock));
                     }
