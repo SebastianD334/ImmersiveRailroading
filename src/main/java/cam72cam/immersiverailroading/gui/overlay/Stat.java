@@ -148,8 +148,6 @@ public enum Stat {
 
     private int getDefaultDecimal() {
         switch (this) {
-            case SPEED:
-                return 2;
             case LIQUID:
             case MAX_LIQUID:
             case BOILER_PRESSURE:
@@ -157,6 +155,7 @@ public enum Stat {
             case TEMPERATURE:
             case MAX_TEMPERATURE:
                 return 1;
+            case SPEED:
             case MAX_SPEED:
             default:
                 return 0;
