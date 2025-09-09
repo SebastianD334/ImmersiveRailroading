@@ -371,10 +371,9 @@ public class GuiBuilder {
                 if (stat.hasDecimalSetting()) {
                     int decimalIndex = index + statStr.length();
 
-                    if (decimalIndex < out.length() &&
-                            out.charAt(decimalIndex) == '.' &&
-                            decimalIndex + 1 < out.length() &&
-                            Character.isDigit(out.charAt(decimalIndex + 1))) {
+                    if (decimalIndex + 1 < out.length() //Check if we have both dot and number
+                        && out.charAt(decimalIndex) == '.'
+                        && Character.isDigit(out.charAt(decimalIndex + 1))) {
                         // [stat].[digit(0~5)]
                         int dig = Character.getNumericValue(out.charAt(decimalIndex + 1));
                         dig = Math.min(5, Math.max(0, dig));
