@@ -34,9 +34,9 @@ public enum Stat {
         return this.getValue(stock, getDefaultDecimal());
     }
 
-    public String getValue(EntityRollingStock stock, int diget) {
+    public String getValue(EntityRollingStock stock, int digit) {
         Float temp = null;
-        String format = formats[diget];
+        String format = formats[digit];
 
         switch (this) {
             case SPEED:

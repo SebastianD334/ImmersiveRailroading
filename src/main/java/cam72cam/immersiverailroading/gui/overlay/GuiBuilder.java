@@ -375,7 +375,7 @@ public class GuiBuilder {
                             out.charAt(decimalIndex) == '.' &&
                             decimalIndex + 1 < out.length() &&
                             Character.isDigit(out.charAt(decimalIndex + 1))) {
-                        // [stat].[diget(0~5)]
+                        // [stat].[digit(0~5)]
                         int dig = Character.getNumericValue(out.charAt(decimalIndex + 1));
                         dig = Math.min(5, Math.max(0, dig));
 
