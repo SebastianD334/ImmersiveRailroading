@@ -371,7 +371,7 @@ public class GuiBuilder {
                 if (stat.hasDecimalSetting()) {
                     int decimalIndex = index + statStr.length();
 
-                    if (decimalIndex + 1 < out.length() //Check if we have both dot and number
+                    if (decimalIndex + 1 < out.length() // Check if we have both dot and number
                         && out.charAt(decimalIndex) == '.'
                         && Character.isDigit(out.charAt(decimalIndex + 1))) {
                         // [stat].[digit(0~5)]
