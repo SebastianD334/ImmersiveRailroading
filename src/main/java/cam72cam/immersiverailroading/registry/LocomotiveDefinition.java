@@ -58,13 +58,19 @@ public abstract class LocomotiveDefinition extends FreightDefinition {
         } else {
             if (properties.getValue("horsepower").asInteger() != null) {
                 power_kW = properties.getValue("horsepower").asInteger() * PowerDisplayType.hpToKW * internal_inv_scale;
+            } else if (properties.getValue("power_hp").asInteger() != null) {
+                power_kW = properties.getValue("power_hp").asInteger() * PowerDisplayType.hpToKW * internal_inv_scale;
+            } else if (properties.getValue("power_kw").asInteger() != null) {
+                power_kW = properties.getValue("power_kw").asInteger() * internal_inv_scale;
             } else {
-                power_kW = properties.getValue("kilowatt").asInteger() *  internal_inv_scale;
+                power_kW = Math.ceil(properties.getValue("power_w").asInteger() / 1000 *  internal_inv_scale); // TODO: actually round this value, even Math.ceil currently doesn't work, it always rounds down.
             }
             if (properties.getValue("tractive_effort_lbf").asInteger() != null) {
                 traction_N = properties.getValue("tractive_effort_lbf").asInteger() * ForceDisplayType.lbfToNewton * internal_inv_scale;
+            } else if (properties.getValue("tractive_effort_kn").asInteger() != null) {
+                traction_N = properties.getValue("tractive_effort_kn").asInteger() * 1000 * internal_inv_scale;
             } else {
-                traction_N = properties.getValue("tractive_effort_newton").asInteger() *  internal_inv_scale;
+                traction_N = properties.getValue("tractive_effort_n").asInteger() *  internal_inv_scale;
             }
             factorOfAdhesion = properties.getValue("factor_of_adhesion").asDouble(4);
             maxSpeed = Speed.fromMetric(properties.getValue("max_speed_kmh").asDouble() * internal_inv_scale);
