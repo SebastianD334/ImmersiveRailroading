@@ -63,7 +63,7 @@ public abstract class LocomotiveDefinition extends FreightDefinition {
             } else if (properties.getValue("power_kw").asInteger() != null) {
                 power_kW = properties.getValue("power_kw").asInteger() * internal_inv_scale;
             } else {
-                power_kW = Math.ceil(properties.getValue("power_w").asInteger() / 1000 *  internal_inv_scale); // TODO: actually round this value, even Math.ceil currently doesn't work, it always rounds down.
+                power_kW = Math.round(properties.getValue("power_w").asFloat() / 1000 *  internal_inv_scale);
             }
             if (properties.getValue("tractive_effort_lbf").asInteger() != null) {
                 traction_N = properties.getValue("tractive_effort_lbf").asInteger() * ForceDisplayType.lbfToNewton * internal_inv_scale;
