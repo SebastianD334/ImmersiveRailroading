@@ -5,7 +5,7 @@ public enum PressureDisplayType {
     bar,
     kpa;
 
-    public static final float psiToKPa = 6.89476f;
+    public static final float psiToKPa = 6.89474f;
     public static final float kPaToPsi = 0.145037f;
 
     public float convertFromPSI(float value) {
